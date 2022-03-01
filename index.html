@@ -5,27 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Game</title>
-
-<style>
-    .welcome{
-        border: 1px solid black;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        flex-direction: column;
-        padding: ;
-    }
-    .center{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-</style>
-
+    <link rel="stylesheet" src="styles.css">
+    <script src="index.js"></script>
 </head>
+
 <body>
-    <div class="welcome">
-        <p>Test your front end developer skills by answering the following questions</p>
-        <button id="btnBegin" onclick="doSomething();">Begin</button>
-    </div>
+    <div id="main center">
+        <div id="greeting" class="welcome">
+        <p>Test your front end developer skills by answering the following questions.</p>
+        <!--<form> <button type="submit" form action="/question.html"> Begin </button></form> -->
+            <button id="btnBegin" onclick="doGame();">Begin</button>
+        </div>
+        <div id="score-board" class="hide">
+            <div id="timerContainer">Time Remaining: <span id="timer" style="text-align: left"></span></div>
+            <div id="scoreContainer"> Score: <span id ="score" style="text-align: right"></span> </div>
+        </div>
+        <div id="questionx" class="hide">
+        </div>
+     </div>
 
 
 </body>
