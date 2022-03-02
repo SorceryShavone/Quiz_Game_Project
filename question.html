@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheets" href="styles.css">
+    <script src="index.js" defer></script>
+    
     <script>
        var countDownTimer;
        var timerInterval;
@@ -24,6 +26,7 @@
         }
         //question is asked
         function SetupQuestions() {
+            console.log("SetupQuestions started");
             let question1 = {
                 id: "quest0",
                 question: "To select elements with a specific class:",
@@ -72,7 +75,7 @@
 
 </head>
 <body>
-    <div class="question-container">
+    <div class="welcome">
         <span style="text-align: left;">Time Remaining</span>
         <span style="text-align: right;"> Score:</span>
     </div>

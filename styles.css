@@ -26,7 +26,8 @@ p {
     display: none;
 }
 
-.question {color: black;
+.question {
+    color: black;
 
 }
 
@@ -34,4 +35,8 @@ p {
     color: blue;
 }
 
+div.answer:hover, div.answer:active {
+    color: white;
+    background-color: blue;
+}
 

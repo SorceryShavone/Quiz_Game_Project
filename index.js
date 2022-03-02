@@ -17,8 +17,9 @@
        }
 
         function updateTimer() {
+            console.log("updateTimer: begin");        
             countDownTimer --;
-            console.log("updateTimer")
+            console.log("updateTimer: countDownTimer", countDownTimer)
             presentTimer();
         }
 
@@ -35,6 +36,12 @@
             scoreBoard.classList.remove('hide')
         }
 
+        function presentScore () {
+            let currentScore = document.getElementById ('score');
+            currentScore.innerText = gameScore;
+            console.log("presentScore: currentScore", currentScore);
+        }
+    
         function hideGreeting() {
             let greeting = document.getElementById('greeting');
             console.log("hideGreeting: greeting", greeting);
@@ -42,11 +49,7 @@
             greeting.classList.add('hide');
         }
 
-        function showScore () {
-            let currentScore = document.getElementById ('score');
-            currentScore.innerText = 
-        }
-    
+       
 
 
 
@@ -95,10 +98,35 @@
             newQuestion.id = arrayOfQuestions[questionIndex].id;
             newQuestion.innerText = arrayOfQuestions[questionIndex].question;
             newQuestion.classList.add('question');
+
+            let qSpan = document.createElement('span)');
+            qSpan.innerText = arrayOfQuestions[questionIndex].question;
+            newQuestion.appendChild(qSpan);
             
 
             if(arrayOfQuestions[questionIndex].answer1) {
                 let answer = document.createElement ('div');
+                let rdoBtn = document.createElement('input');
+                let label = document.createElement('label');
+
+                rdoBtn.id = `${arrayOfQuestions[questionIndex].Id}_answer1`;
+                rdoBtn.setAttribute('type', 'radio');
+                rdoBtn.value = 1
+                rdoBtn.classList.add('answer');
+                rdoBtn.classList.add(`${arrayOfQuestions[questionIndex].id}`);
+                rdoBtn.name = arrayOfQuestions[questionIndex].id;
+
+                label.innerText = arrayOfQuestions[question].answer1;
+                label.setAttribute('for', `${rdoBtn.id}`);
+
+                answer.classList.add('answer');
+                answer.appendChild(rdoBtn);
+                answer.appendChild(label);
+                newQuestion.appendChild('answer');
+
+                console.log('prepareQuestionAndAnswers answer', answer1);
+
+
                 answer.innerText = arrayOfQuestions[questionIndex].answer1;  
                 answer.classList.add('answer');      
                 answer.id = `${arrayOfQuestions[questionIndex].id}_answer1`;
@@ -112,6 +140,8 @@
                 answer.id = "" + arrayOfQuestions[questionIndex].id + "_answer1"; 
                 // same as above            answer.id = `${arrayOfQuestions[questionIndex].id}_answer2`; 
                 questionSection.appendChild(answer);   
+
+                console.log('prepareQuestionAndAnswers answer', answer);
             }
 
             questionSection.appendChild(newQuestion)
@@ -129,4 +159,5 @@
             SetupQuestionsandAnswers();
             showScoreBoard();
             presentScore();
+            getQuestion('quest0')
        }
