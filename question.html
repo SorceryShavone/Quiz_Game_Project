@@ -25,8 +25,8 @@
             countDownTime = countDownTimer -1;
         }
         //question is asked
-        function SetupQuestions() {
-            console.log("SetupQuestions started");
+        function setupQuestionsAndAnswers() {
+            console.log("setupQuestionsAndAnswers started");
             let question1 = {
                 id: "quest0",
                 question: "To select elements with a specific class:",
@@ -58,8 +58,8 @@
             } 
         }
 
-        function showQuestion(questionindex) {
-            let questionSection = document.getElementById('question');
+        function prepareQuestionAndAnswers(questionindex) {
+            let questionSection = document.getElementById('questions');
             let newQuestion = document.createElement('div');
             newQuestion.id = arrayOfQuestions(questionindex).id;
             newQuestion.innerText = arrayOfQuestions[questionindex].question;
@@ -71,7 +71,7 @@
  
         //if question is incorrect time penalty
         //if answer is correct show points and then go to the next question
-    </script>
+    </script> 
 
 </head>
 <body>

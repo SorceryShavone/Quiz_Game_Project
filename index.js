@@ -3,7 +3,7 @@
        var arrayOfQuestions = [];
        var gameScore = 0;
        const timePenalty = 30; //time in seconds
-       const maxTime = 5 * 60 * 1000; //time is in seconds
+       const maxTime = 5 * 60; //time is in seconds
        function setCountDownTimer () {
            countDownTimer = maxTime;
            console.log("countDownTimer: ", countDownTimer)
@@ -17,8 +17,8 @@
        }
 
         function updateTimer() {
-            console.log("updateTimer: begin");        
-            countDownTimer --;
+            console.log("updateTimer: begun");        
+            countDownTimer--;
             console.log("updateTimer: countDownTimer", countDownTimer)
             presentTimer();
         }
@@ -54,7 +54,7 @@
 
 
         //questions is asked
-        function SetupQuestions() {
+        function setupQuestionsAndAnswers() {
             let question1 = {
                 id: "quest0",
                 question: "To select elements with a specific class:",
@@ -93,10 +93,11 @@
         }
 
         function prepareQuestionAndAnswers(questionIndex) {
+            console.log('prepareQuestionAndAnswers questionIndex', questionIndex);
             let questionSection = document.getElementById('questions');
             let newQuestion = document.createElement('div');
             newQuestion.id = arrayOfQuestions[questionIndex].id;
-            newQuestion.innerText = arrayOfQuestions[questionIndex].question;
+           // newQuestion.innerText = arrayOfQuestions[questionIndex].question;
             newQuestion.classList.add('question');
 
             let qSpan = document.createElement('span)');
@@ -124,27 +125,29 @@
                 answer.appendChild(label);
                 newQuestion.appendChild('answer');
 
-                console.log('prepareQuestionAndAnswers answer', answer1);
+                console.log('prepareQuestionAndAnswers answer', answer);
 
 
-                answer.innerText = arrayOfQuestions[questionIndex].answer1;  
-                answer.classList.add('answer');      
-                answer.id = `${arrayOfQuestions[questionIndex].id}_answer1`;
-                questionSection.appendChild(answer);
+                //answer.innerText = arrayOfQuestions[questionIndex].answer1;  
+                //answer.classList.add('answer');      
+                //answer.id = `${arrayOfQuestions[questionIndex].id}_answer1`;
+                //questionSection.appendChild(answer);
             }
 
             if(arrayOfQuestions[questionIndex].answer2) {
                 let answer = document.createElement ('div');
                 answer.innerText = arrayOfQuestions[questionIndex].answer2;  
                 answer.classList.add('answer');  
-                answer.id = "" + arrayOfQuestions[questionIndex].id + "_answer1"; 
+                answer.id = "" + arrayOfQuestions[questionIndex].id + "_answer2"; 
                 // same as above            answer.id = `${arrayOfQuestions[questionIndex].id}_answer2`; 
-                questionSection.appendChild(answer);   
+                NewSection.appendChild(answer);   
 
                 console.log('prepareQuestionAndAnswers answer', answer);
             }
 
-            questionSection.appendChild(newQuestion)
+            questionSection.appendChild(newQuestion);
+
+            console.log('prepareQuestionAndAnswers newQuestion', newQuestion);
 
         }
 
@@ -156,7 +159,7 @@
             setCountDownTimer();
             startTimer();
             hideGreeting();
-            SetupQuestionsandAnswers();
+            setupQuestionsAndAnswers();
             showScoreBoard();
             presentScore();
             getQuestion('quest0')
