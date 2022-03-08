@@ -9,22 +9,28 @@
     <script src="index.js"></script>
 </head>
 
+
 <body>
     <div id="main center">
-        <div id="greeting" class="welcome">
-        <p>Test your front end developer skills by answering the following questions.</p>
+        <div id="welcome" class="welcome">
+
+        <span>Test your front end developer skills by answering the following questions.</span>
         <!--<form> <button type="submit" form action="/question.html"> Begin </button></form> -->
-            <button id="btnBegin" onclick="doGame();">Begin</button>
+            <button id="start-quiz" onclick="doGame();">Begin</button>
+         
         </div>
+        <div id="questions" class="questions hide">
+            <!--
+            <div class="answer">
+                <input id="quest0_answer5" type="radio" name="quest0" class="answer quest0"></input> 
+                <label for="quest0_answer5">A possible Answer</label></div> -->
+        </div> 
+        
         <div id="score-board" class="hide">
             <div id="timerContainer">Time Remaining: <span id="timer" style="text-align:left"></span></div>
             <div id="scoreContainer"> Score: <span id ="score" style="text-align: right"></span> </div>
         </div>
-        <div id="questions">
-            <div class="answer">
-                <input id="quest0_answer5" type="radio" name="quest0" class="answer quest0"></input> 
-                <label for="quest0_answer5">A possible Answer</label></div>
-        </div>
+ 
      </div>
 
 
