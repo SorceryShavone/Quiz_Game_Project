@@ -499,14 +499,27 @@ function showHighScores() {
     ? JSON.parse(localStorage.getItem(highScoreKey))
     : [];
 
-    //remove this line when you have updated the code.
-    alert('Update the code to show the high scores in a table');
 
     let i=0;
     while(i<hScores.length ) {
         console.log("hScores[i].score: ", hScores[i].score);
         console.log("hScores[i].initals: ", hScores[i].initials);
-        //update here to add array values to the table.
+        
+        let HighScorePpl = document.createElement('tr');
+        let column0 = document.createElement('td');
+        let column1 = document.createElement('td');
+        let column2 = document.createElement('td');
+        column0.innerText = i+1;
+        column1.innerText = hScores[i].score;
+        column2.innerText = hScores[i].initials;
+
+        HighScorePpl.appendChild(tabledata0);
+        HighScorePpl.appendChild(tabledata1);
+        HighScorePpl.appendChild(tabledata2);
+        table.appendChild(HighScorePpl);
+      
+    
+
         i++;
     }
 
