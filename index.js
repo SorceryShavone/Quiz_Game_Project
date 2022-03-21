@@ -513,9 +513,9 @@ function showHighScores() {
         column1.innerText = hScores[i].score;
         column2.innerText = hScores[i].initials;
 
-        HighScorePpl.appendChild(tabledata0);
-        HighScorePpl.appendChild(tabledata1);
-        HighScorePpl.appendChild(tabledata2);
+        HighScorePpl.appendChild(column0);
+        HighScorePpl.appendChild(column1);
+        HighScorePpl.appendChild(column2);
         table.appendChild(HighScorePpl);
       
     
